@@ -1,0 +1,134 @@
+[
+  {
+    "title": "espada de hierro",
+    "description": "una espada de hierro normal",
+    "code": "EsDH",
+    "price": 300,
+    "status": true,
+    "stock": 30,
+    "category": "espada",
+    "thumbnail": "https://cdn.fireemblemwiki.org/thumb/7/71/FESK_Iron_Sword.png/119px-FESK_Iron_Sword.png",
+    "id": "1696172622145vcvqe9cq9"
+  },
+  {
+    "title": "lanza de hierro",
+    "description": "una lanza de hierro normal",
+    "code": "LaDH",
+    "price": 350,
+    "status": true,
+    "stock": 25,
+    "category": "lanza",
+    "thumbnail": "https://img1.cgtrader.com/items/2091993/2e324ff416/large/spear-from-the-game-fire-emblem-three-houses-3d-model-obj-stl-ige-stp-sat.jpg",
+    "id": "1696172622145ofrfcqlyn"
+  },
+  {
+    "title": "hacha de hierro",
+    "description": "una hacha de hierro normal",
+    "code": "HaDH",
+    "price": 400,
+    "status": true,
+    "stock": 25,
+    "category": "hacha",
+    "thumbnail": "https://cdn.fireemblemwiki.org/d/df/FESK_Iron_Axe.png",
+    "id": "1696172622145mjb7hcp33"
+  },
+  {
+    "title": "espada de acero",
+    "description": "una espada de acero",
+    "code": "EsDA",
+    "price": 450,
+    "status": true,
+    "stock": 25,
+    "category": "espada",
+    "thumbnail": "https://cdn.fireemblemwiki.org/b/b1/FESK_Steel_Sword.png",
+    "id": "1696172622145hxprcle9k"
+  },
+  {
+    "title": "lanza de acero",
+    "description": "una lanza de acero",
+    "code": "LaDA",
+    "price": 500,
+    "status": true,
+    "stock": 25,
+    "category": "lanza",
+    "thumbnail": "https://ae01.alicdn.com/kf/H3d8b07e53afa4f5885025a28aad35f95k/Fire-Emblem-Three-Houses-Dimitri-Weapon-Lance-Sword-Cosplay-Replica-Prop.jpg",
+    "id": "1696172622145u6uup3jsd"
+  },
+  {
+    "title": "hacha de acero",
+    "description": "una hacha de acero",
+    "code": "HaDA",
+    "price": 550,
+    "status": true,
+    "stock": 20,
+    "category": "hacha",
+    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShuz1If6R2wJhc6ZifnRJxMK5O43jGvRNfzw&usqp=CAU",
+    "id": "16961726221451i2hd11dj"
+  },
+  {
+    "title": "espada de plata",
+    "description": "una espada de plata",
+    "code": "EsDP",
+    "price": 600,
+    "status": true,
+    "stock": 20,
+    "category": "espada",
+    "thumbnail": "https://cdn.fireemblemwiki.org/9/93/FE776_Killing_Edge.png",
+    "id": "1696172622145u6p026i3l"
+  },
+  {
+    "title": "lanza de plata",
+    "description": "una lanza de plata",
+    "code": "LaDP",
+    "price": 650,
+    "status": true,
+    "stock": 20,
+    "category": "lanza",
+    "thumbnail": "https://cdn.fireemblemwiki.org/thumb/a/a7/FESK_Silver_Lance.png/99px-FESK_Silver_Lance.png",
+    "id": "1696172622145vriq5wxg4"
+  },
+  {
+    "title": "hacha de plata",
+    "description": "una hacha de plata",
+    "code": "HaDP",
+    "price": 700,
+    "status": true,
+    "stock": 15,
+    "category": "hacha",
+    "thumbnail": "https://m.media-amazon.com/images/I/51hbrh4-olL._AC_UF894,1000_QL80_.jpg",
+    "id": "1696172622145xxppd9zvo"
+  },
+  {
+    "title": "tyfing",
+    "description": "una espada legendaria, forjada por los herreros de chalphy",
+    "code": "Tyrf",
+    "price": 1500,
+    "status": true,
+    "stock": 3,
+    "category": "espada",
+    "thumbnail": "https://cdn.fireemblemwiki.org/c/ce/FESK_Tyrfing.png",
+    "id": "16961726221451g6ub45y4"
+  },
+  {
+    "title": "gungnir",
+    "description": "lanza legendaria, forgada por los herreros de thracia",
+    "code": "Gung",
+    "price": 1700,
+    "status": true,
+    "stock": 6,
+    "category": "lanza",
+    "thumbnail": "https://cdn.fireemblemwiki.org/thumb/a/ab/FESK_Gungnir.png/80px-FESK_Gungnir.png",
+    "id": "1696172622145wotjeno0p"
+  },
+  {
+    "title": "helswath",
+    "description": "una hacha legendaria, forjada por los herreros de dozel",
+    "code": "Hels",
+    "price": 1900,
+    "status": true,
+    "stock": 10,
+    "category": "hacha",
+    "thumbnail": "https://cdn.fireemblemwiki.org/8/82/FESK_Helswath.png",
+    "id": "1696172622145nduu7w4vj"
+  }
+]
