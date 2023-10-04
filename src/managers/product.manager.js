@@ -39,7 +39,7 @@ export default class ProductManager {
     try {
       const products = await this.getAll();
 
-      // Encontrar el ID máximo actual entre los productos
+      
       let maxId = 0;
       products.forEach((product) => {
         if (product.id > maxId) {
@@ -47,13 +47,13 @@ export default class ProductManager {
         }
       });
 
-      // Generar un nuevo ID sumando 1 al ID máximo encontrado
+      
       newProduct.id = maxId + 1;
 
-      // Agregar el nuevo producto al arreglo de productos
+      
       products.push(newProduct);
 
-      // Guardar los cambios en el archivo JSON
+      
       await this.save(products);
 
       return newProduct;
@@ -69,13 +69,13 @@ export default class ProductManager {
       const index = products.findIndex((product) => product.id === updatedProduct.id);
 
       if (index === -1) {
-        return null; // Producto no encontrado
+        return null; 
       }
 
-      // Actualizar el producto con los datos proporcionados
+      
       products[index] = updatedProduct;
 
-      // Guardar los cambios en el archivo JSON
+      
       await this.save(products);
 
       return updatedProduct;
@@ -91,16 +91,16 @@ export default class ProductManager {
       const index = products.findIndex((product) => product.id === id);
 
       if (index === -1) {
-        return false; // Producto no encontrado
+        return false; 
       }
 
-      // Eliminar el producto del arreglo
+      
       products.splice(index, 1);
 
-      // Guardar los cambios en el archivo JSON
+      
       await this.save(products);
 
-      return true; // Producto eliminado correctamente
+      return true; 
     } catch (error) {
       console.error('Error al eliminar un producto:', error);
       return false;

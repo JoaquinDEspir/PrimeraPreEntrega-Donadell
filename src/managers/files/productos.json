@@ -8,7 +8,7 @@
     "stock": 30,
     "category": "espada",
     "thumbnail": "https://cdn.fireemblemwiki.org/thumb/7/71/FESK_Iron_Sword.png/119px-FESK_Iron_Sword.png",
-    "id": "1696172622145vcvqe9cq9"
+    "id": "1"
   },
   {
     "title": "lanza de hierro",
@@ -19,7 +19,7 @@
     "stock": 25,
     "category": "lanza",
     "thumbnail": "https://img1.cgtrader.com/items/2091993/2e324ff416/large/spear-from-the-game-fire-emblem-three-houses-3d-model-obj-stl-ige-stp-sat.jpg",
-    "id": "1696172622145ofrfcqlyn"
+    "id": "2"
   },
   {
     "title": "hacha de hierro",
@@ -30,7 +30,7 @@
     "stock": 25,
     "category": "hacha",
     "thumbnail": "https://cdn.fireemblemwiki.org/d/df/FESK_Iron_Axe.png",
-    "id": "1696172622145mjb7hcp33"
+    "id": "3"
   },
   {
     "title": "espada de acero",
@@ -41,7 +41,7 @@
     "stock": 25,
     "category": "espada",
     "thumbnail": "https://cdn.fireemblemwiki.org/b/b1/FESK_Steel_Sword.png",
-    "id": "1696172622145hxprcle9k"
+    "id": "4"
   },
   {
     "title": "lanza de acero",
@@ -52,7 +52,7 @@
     "stock": 25,
     "category": "lanza",
     "thumbnail": "https://ae01.alicdn.com/kf/H3d8b07e53afa4f5885025a28aad35f95k/Fire-Emblem-Three-Houses-Dimitri-Weapon-Lance-Sword-Cosplay-Replica-Prop.jpg",
-    "id": "1696172622145u6uup3jsd"
+    "id": "5"
   },
   {
     "title": "hacha de acero",
@@ -63,7 +63,7 @@
     "stock": 20,
     "category": "hacha",
     "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShuz1If6R2wJhc6ZifnRJxMK5O43jGvRNfzw&usqp=CAU",
-    "id": "16961726221451i2hd11dj"
+    "id": "6"
   },
   {
     "title": "espada de plata",
@@ -74,7 +74,7 @@
     "stock": 20,
     "category": "espada",
     "thumbnail": "https://cdn.fireemblemwiki.org/9/93/FE776_Killing_Edge.png",
-    "id": "1696172622145u6p026i3l"
+    "id": "7"
   },
   {
     "title": "lanza de plata",
@@ -85,7 +85,7 @@
     "stock": 20,
     "category": "lanza",
     "thumbnail": "https://cdn.fireemblemwiki.org/thumb/a/a7/FESK_Silver_Lance.png/99px-FESK_Silver_Lance.png",
-    "id": "1696172622145vriq5wxg4"
+    "id": "8"
   },
   {
     "title": "hacha de plata",
@@ -96,7 +96,7 @@
     "stock": 15,
     "category": "hacha",
     "thumbnail": "https://m.media-amazon.com/images/I/51hbrh4-olL._AC_UF894,1000_QL80_.jpg",
-    "id": "1696172622145xxppd9zvo"
+    "id": "9"
   },
   {
     "title": "tyfing",
@@ -107,7 +107,7 @@
     "stock": 3,
     "category": "espada",
     "thumbnail": "https://cdn.fireemblemwiki.org/c/ce/FESK_Tyrfing.png",
-    "id": "16961726221451g6ub45y4"
+    "id": "10"
   },
   {
     "title": "gungnir",
@@ -118,7 +118,7 @@
     "stock": 6,
     "category": "lanza",
     "thumbnail": "https://cdn.fireemblemwiki.org/thumb/a/ab/FESK_Gungnir.png/80px-FESK_Gungnir.png",
-    "id": "1696172622145wotjeno0p"
+    "id": "11"
   },
   {
     "title": "helswath",
@@ -129,6 +129,16 @@
     "stock": 10,
     "category": "hacha",
     "thumbnail": "https://cdn.fireemblemwiki.org/8/82/FESK_Helswath.png",
-    "id": "1696172622145nduu7w4vj"
+    "id": "12"
+  },
+  {
+    "title": "Hacha de batalla",
+    "description": "Un hacha de batalla estándar",
+    "code": "HXB-123",
+    "price": 50,
+    "stock": 20,
+    "category": "Armas",
+    "thumbnail": "https://example.com/hacha.jpg",
+    "id": "91"
   }
 ]

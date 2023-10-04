@@ -28,19 +28,19 @@ export default class CartManager {
     try {
       const carts = await this.getAll();
 
-      // Generar un nuevo ID único para el carrito
+      
       const newCartId = Date.now().toString() + Math.random().toString(36).substr(2, 9);
 
-      // Crear un nuevo carrito vacío
+      
       const newCart = {
         id: newCartId,
         products: [],
       };
 
-      // Agregar el nuevo carrito a la lista de carritos
+      
       carts.push(newCart);
 
-      // Guardar los cambios en el archivo JSON
+      
       await this.save(carts);
 
       return newCart;
@@ -67,22 +67,22 @@ export default class CartManager {
       const cart = carts.find((c) => c.id === cartId);
 
       if (!cart) {
-        return false; // Carrito no encontrado
+        return false;
       }
 
-      // Verificar si el producto ya está en el carrito
+      
       const existingProduct = cart.products.find((p) => p.id === productId);
 
       if (existingProduct) {
-        existingProduct.quantity += 1; // Aumentar la cantidad si ya existe
+        existingProduct.quantity += 1; 
       } else {
-        cart.products.push({ id: productId, quantity: 1 }); // Agregar el producto si no existe
+        cart.products.push({ id: productId, quantity: 1 }); 
       }
 
-      // Guardar los cambios en el archivo JSON
+      
       await this.save(carts);
 
-      return true; // Producto agregado al carrito correctamente
+      return true; 
     } catch (error) {
       console.error('Error al agregar un producto al carrito:', error);
       return false;
