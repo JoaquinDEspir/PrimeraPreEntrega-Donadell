@@ -1,90 +1,46 @@
-    import CartManager from '../managers/cart.manager.js';
-    import express from 'express';
+import express from 'express';
+import CartManager from '../dao/dbmanagers/cart.manager.js';
 
 
-    const router = express.Router();
-    const cartManager = new CartManager('C:/Users/joaqu/Desktop/BackEnd/PrimeraPreEntrega/src/managers/files/carrito.json')
 
-    router.post('/', async (req, res) => {
-        try {
-            
-            const newCartId = Date.now().toString() + Math.random().toString(36).substr(2, 9);
+const router = express.Router();
+const cartManager = new CartManager();
 
-            
-            const newCart = {
-                id: newCartId,
-                products: []
-            };
+router.get('/', async (req, res) => {
+  const carts = await cartManager.getAll();
+  res.json(carts);
+});
 
-            
-            const carts = await cartManager.getAll();
+router.get('/:id', async (req, res) => {
+  const id = req.params.id;
+  const cart = await cartManager.getById(id);
+  res.json(cart);
+});
 
-            
-            carts.push(newCart);
+router.post('/', async (req, res) => {
+  const newCart = req.body;
+  const cart = await cartManager.create(newCart);
+  res.json(cart);
+});
 
-            
-            await cartManager.save(carts);
+router.put('/:id', async (req, res) => {
+  const id = req.params.id;
+  const updatedCart = req.body;
+  const cart = await cartManager.update(id, updatedCart);
+  res.json(cart);
+});
 
-            res.json(newCart); 
-        } catch (error) {
-            console.error('Error al crear un carrito:', error);
-            res.status(500).json({ error: 'Error interno del servidor' });
-        }
-    });
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
+  const success = await cartManager.delete(id);
+  res.json({ success });
+});
 
-    router.get('/:cid', async (req, res) => {
-        const cartId = req.params.cid;
+router.post('/:cartId/products/:productId', async (req, res) => {
+  const cartId = req.params.cartId;
+  const productId = req.params.productId;
+  const success = await cartManager.addProduct(cartId, productId);
+  res.json({ success });
+});
 
-        try {
-            const carts = await cartManager.getAll();
-
-            const cart = carts.find((c) => c.id === cartId);
-
-            if (!cart) {
-                return res.status(404).json({ error: 'Carrito no encontrado' });
-            }
-
-            res.json(cart.products); 
-        } catch (error) {
-            console.error('Error al listar productos de un carrito:', error);
-            res.status(500).json({ error: 'Error interno del servidor' });
-        }
-    });
-
-
-    router.post('/:cid/product/:pid', async (req, res) => {
-        const cartId = req.params.cid;
-        const productId = req.params.pid;
-
-        try {
-
-            const carts = await cartManager.getAll();
-
-
-            const cart = carts.find((c) => c.id === cartId);
-
-            if (!cart) {
-                return res.status(404).json({ error: 'Carrito no encontrado' });
-            }
-
-
-            const indexProductInCart = cart.products.findIndex((product) => product.id === productId);
-
-            if (indexProductInCart !== -1) {
-
-                cart.products[indexProductInCart].quantity++;
-            } else {
-
-                cart.products.push({ id: productId, quantity: 1 });
-            }
-
-
-            await cartManager.save(carts);
-
-            res.json(cart.products); 
-        } catch (error) {
-            console.error('Error al agregar un producto al carrito:', error);
-            res.status(500).json({ error: 'Error interno del servidor' });
-        }
-    });
-    export default router;
+export default router;

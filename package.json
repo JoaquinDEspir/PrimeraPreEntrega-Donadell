@@ -1,6 +1,5 @@
 {
   "type": "module",
-
   "name": "intento4",
   "version": "1.0.0",
   "description": "",
@@ -13,6 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "fs": "^0.0.1-security"
+    "express-handlebars": "^7.1.2",
+    "fs": "^0.0.1-security",
+    "mongodb": "^6.2.0",
+    "mongoose": "^8.0.0",
+    "socket.io": "^4.7.2"
   }
 }
