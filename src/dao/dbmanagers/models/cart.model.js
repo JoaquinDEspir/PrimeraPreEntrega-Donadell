@@ -14,7 +14,7 @@ const productoSchema = new mongoose.Schema({
 });
 
 const cartSchema = new mongoose.Schema({
-  products: [productoSchema], // Esto representa una matriz de objetos producto
+  products: [productoSchema], 
 });
 
 export const cartModel = mongoose.model(cartCollection, cartSchema);
