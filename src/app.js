@@ -3,7 +3,9 @@ import express from 'express';
 import productRouter from './routes/products.router.js';
 import cartRouter from './routes/cart.router.js';
 import mongoose from 'mongoose';
-import exphbs from 'express-handlebars'; // Importa exphbs, que es el motor de plantillas
+import handlebars from 'express-handlebars';
+import __dirname from './util.js'
+import viewsRouter from './routes/views.router.js'
 
 const app = express();
 console.log("Inicio de la aplicación");
@@ -13,12 +15,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/products', productRouter);
 app.use('/api/carts', cartRouter);
+app.use('/api/views', viewsRouter)
 
 
-app.engine('handlebars', exphbs({
-  defaultLayout: 'main',
-  extname: '.handlebars', 
-}));
+app.engine('handlebars', handlebars.engine());
 app.set('views', `${__dirname}/views`);
 app.set('view engine', 'handlebars');
 

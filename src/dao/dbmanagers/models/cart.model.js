@@ -1,11 +1,13 @@
+// En cart.model.js
 import mongoose from 'mongoose';
 
 const cartCollection = 'cart';
 
 const productoSchema = new mongoose.Schema({
-  codprod:{
-    type: String,
-    required: true
+  pid: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'product', // Nombre del modelo al que hace referencia (debes usar el mismo nombre que uses al definir tu modelo de productos)
+    required: true,
   },
   quantity: {
     type: Number,
@@ -14,7 +16,7 @@ const productoSchema = new mongoose.Schema({
 });
 
 const cartSchema = new mongoose.Schema({
-  products: [productoSchema], 
+  products: [productoSchema], // Esto representa una matriz de objetos producto
 });
 
 export const cartModel = mongoose.model(cartCollection, cartSchema);

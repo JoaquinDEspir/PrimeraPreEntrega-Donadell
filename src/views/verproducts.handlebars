@@ -3,9 +3,9 @@
     <p>{{this.title}}</p>
     {{/each}}
     {{#if hasPrevPage}}
-    <a href="/verproducts?page={{prevPage}}"><button>Anterior</button></a>
+    <a href="/api/views/verproducts?page={{ prevPage }}"><button>Anterior</button></a>
     {{/if}}
     {{#if hasNextPage}}
-    <a href="/verproducts?page={{nextPage}}"><button>Siguiente</button></a>
+    <a href="/api/views/verproducts?page={{ nextPage }}"><button>Siguiente</button></a>
     {{/if}}
 </div>

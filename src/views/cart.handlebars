@@ -1,4 +1,8 @@
-<div>
-        {#each products}
-        <p>{{this.products}}</p>
-</div>
+<h1>Detalles del Carrito</h1>
+<p>ID del Carrito: {{cart._id}}</p>
+<p>Productos:</p>
+<ul>
+  {{#each cart.products}}
+    <li>{{this.title}} - Cantidad: {{this.quantity}}</li>
+  {{/each}}
+</ul>

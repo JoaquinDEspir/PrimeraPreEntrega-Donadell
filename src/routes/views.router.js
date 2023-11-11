@@ -1,24 +1,54 @@
 import express from 'express';
 import { productsModel } from '../dao/dbmanagers/models/product.model.js';
-import { cartModel } from '../dao/dbmanagers/models/cart.model.js';
+import CartManager from '../dao/dbmanagers/cart.manager.js';
 
 const router = express.Router();
-
+const cartManager = new CartManager(); 
 
 router.get('/verproducts', async (req, res) => {
-    const { limit = 10, page = 1, sort = 'asc', query } = req.query;
-    const {docs, hasPrevPage, hasNextPage, nextPage, prevPage} = await productsModel.paginate({}, {limit: 5, page, lean:true})
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = 5;
 
+    const result = await productsModel.paginate({}, { limit, page, lean: true });
+    const { docs, hasPrevPage, hasNextPage, prevPage, nextPage, totalPages } = result;
+
+    const basePath = '/api/views'; // Agrega la ruta base aquí
+    const prevLink = hasPrevPage ? `${basePath}/verproducts?page=${prevPage}` : null;
+    const nextLink = hasNextPage ? `${basePath}/verproducts?page=${nextPage}` : null;
+    
     res.render('verproducts', { products: docs, totalPages, prevPage, nextPage, page, hasPrevPage, hasNextPage, prevLink, nextLink });
-  });
+  } catch (error) {
+    console.error('Error al obtener la lista de productos:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
-
-
-  router.get('/carts/:cartId', async (req, res) => {
+router.get('/carts/:cartId', async (req, res) => {
+  try {
     const cartId = req.params.cartId;
-  
-  
-    res.render('cartDetails', { products, cartId });
-  });
-  
-  export default router;
+
+    // Lógica para obtener el carrito con sus productos asociados
+    const cart = await cartManager.getById(cartId);
+    
+    // Lógica para obtener los detalles de los productos
+    const populatedCart = await Promise.all(cart.products.map(async (product) => {
+      const populatedProduct = await productsModel.findById(product.pid).lean();
+      // Usar directamente el objeto sin intentar llamar a toObject
+      const productDetails = await productsModel.findById(product.pid).lean();
+  return { ...product, title: productDetails.title };
+    }));
+
+    // Reemplazar el array de productos en el carrito con los detalles populados
+    cart.products = populatedCart;
+
+    res.render('cart', { cart });
+  } catch (error) {
+    console.error('Error al obtener los productos del carrito:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+
+export default router;
