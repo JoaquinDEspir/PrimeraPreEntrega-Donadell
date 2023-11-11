@@ -11,14 +11,13 @@ router.get('/', async (req, res) => {
     const sort = req.query.sort || '';
     const query = req.query.query || '';
 
-    // Configurar las opciones de búsqueda y paginación
     const options = {
       limit,
       page,
       sort: sort === 'asc' ? { price: 1 } : sort === 'desc' ? { price: -1 } : null,
     };
 
-    // Construir la consulta basada en el query
+
     const filter = query ? { category: query } : {};
 
     const products = await productManager.getProducts(filter, options);
@@ -28,7 +27,6 @@ router.get('/', async (req, res) => {
     const hasPrevPage = page > 1;
     const hasNextPage = page < totalPages;
 
-    // Construir enlaces a páginas anteriores y siguientes
     const prevLink = hasPrevPage ? `/products?page=${page - 1}&limit=${limit}&sort=${sort}&query=${query}` : null;
     const nextLink = hasNextPage ? `/products?page=${page + 1}&limit=${limit}&sort=${sort}&query=${query}` : null;
 

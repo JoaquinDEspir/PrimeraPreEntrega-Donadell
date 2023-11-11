@@ -58,17 +58,15 @@ export default class CartManager {
   
   async addProduct(cartId, productId) {
     try {
-      // Obtener el carrito por su ID
+
       const cart = await cartModel.findById(cartId);
 
-      // Verificar si el carrito y el producto existen
       if (!cart) {
         console.error('Cart not found');
         return false;
       }
 
-      // Asumiendo que tienes una relación entre cart y products en tu modelo
-      // Agregar el producto al carrito
+
       cart.products.push({ productId, quantity: 1 });
       await cart.save();
 
@@ -116,8 +114,7 @@ export default class CartManager {
         return null;
       }
   
-      // Puedes poblar los detalles del producto manualmente si es necesario
-      // Esto depende de cómo estás manejando la relación entre el carrito y los productos
+
       const populatedProducts = await Promise.all(
         cart.products.map(async (product) => {
           const productDetails = await productsModel.findById(product.pid).lean();
@@ -125,7 +122,7 @@ export default class CartManager {
         })
       );
   
-      // Reemplaza la lista de productos con los detalles poblados
+
       cart.products = populatedProducts;
   
       return cart;

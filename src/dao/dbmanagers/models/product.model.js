@@ -17,15 +17,15 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
   price: {
-    type: Number, // Cambiado a Number
+    type: Number, 
     required: true,
   },
   status: {
-    type: Boolean, // Cambiado a Boolean
+    type: Boolean, 
     required: true,
   },
   stock: {
-    type: Number , // Cambiado a Number
+    type: Number , 
     required: true,
   },
   category: {

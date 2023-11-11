@@ -6,7 +6,7 @@ const cartCollection = 'cart';
 const productoSchema = new mongoose.Schema({
   pid: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'product', // Nombre del modelo al que hace referencia (debes usar el mismo nombre que uses al definir tu modelo de productos)
+    ref: 'product', 
     required: true,
   },
   quantity: {
@@ -16,7 +16,7 @@ const productoSchema = new mongoose.Schema({
 });
 
 const cartSchema = new mongoose.Schema({
-  products: [productoSchema], // Esto representa una matriz de objetos producto
+  products: [productoSchema],
 });
 
 export const cartModel = mongoose.model(cartCollection, cartSchema);

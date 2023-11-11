@@ -13,7 +13,7 @@ router.get('/verproducts', async (req, res) => {
     const result = await productsModel.paginate({}, { limit, page, lean: true });
     const { docs, hasPrevPage, hasNextPage, prevPage, nextPage, totalPages } = result;
 
-    const basePath = '/api/views'; // Agrega la ruta base aquí
+    const basePath = '/api/views'; 
     const prevLink = hasPrevPage ? `${basePath}/verproducts?page=${prevPage}` : null;
     const nextLink = hasNextPage ? `${basePath}/verproducts?page=${nextPage}` : null;
     
@@ -28,18 +28,17 @@ router.get('/carts/:cartId', async (req, res) => {
   try {
     const cartId = req.params.cartId;
 
-    // Lógica para obtener el carrito con sus productos asociados
+
     const cart = await cartManager.getById(cartId);
     
-    // Lógica para obtener los detalles de los productos
+
     const populatedCart = await Promise.all(cart.products.map(async (product) => {
       const populatedProduct = await productsModel.findById(product.pid).lean();
-      // Usar directamente el objeto sin intentar llamar a toObject
+
       const productDetails = await productsModel.findById(product.pid).lean();
   return { ...product, title: productDetails.title };
     }));
 
-    // Reemplazar el array de productos en el carrito con los detalles populados
     cart.products = populatedCart;
 
     res.render('cart', { cart });

@@ -12,18 +12,18 @@ export default class ProductManager {
 
   };
   async getProducts(filter, options) {
-    // Realiza una consulta a la base de datos utilizando Mongoose u otro método que estés utilizando
+
     const products = await productsModel.find(filter)
       .skip((options.page - 1) * options.limit)
       .limit(options.limit)
       .sort(options.sort)
-      .lean(); // Asegúrate de usar .lean() si deseas obtener objetos JavaScript planos
+      .lean(); 
   
     return products;
   }
 
   async getTotalProducts(filter) {
-    // Realiza una consulta a la base de datos para contar el número total de productos
+
     const totalProducts = await productsModel.countDocuments(filter);
     return totalProducts;
   }

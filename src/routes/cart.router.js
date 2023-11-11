@@ -17,13 +17,13 @@ router.get('/:cid', async (req, res) => {
   try {
     const cart = await cartManager.getById(cartId);
 
-    // Obtener los detalles de los productos manualmente
+
     const populatedCart = await Promise.all(cart.products.map(async (product) => {
-      const populatedProduct = await productsModel.findById(product.pid).lean(); // Agrega .lean()
-      return { ...product, product: populatedProduct }; // Elimina .toObject()
+      const populatedProduct = await productsModel.findById(product.pid).lean(); 
+      return { ...product, product: populatedProduct }; 
     }));
 
-    // Reemplazar el array de productos en el carrito con los detalles populados
+
     cart.products = populatedCart;
 
     res.json(cart);
